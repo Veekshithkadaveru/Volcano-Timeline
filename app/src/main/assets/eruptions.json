@@ -1,0 +1,358 @@
+{
+  "rounds": [
+    {
+      "roundId": 1,
+      "title": "Modern Era",
+      "difficulty": "Easy",
+      "backgroundKey": "volk_back_1",
+      "symbolKey": "volk_sym_1",
+      "eruptions": [
+        {
+          "id": "e_mt_st_helens_1980",
+          "volcano": "Mount St. Helens",
+          "country": "USA",
+          "year": 1980,
+          "displayYear": "1980 AD",
+          "deaths": 57,
+          "veiIndex": 5,
+          "funFact": "The eruption removed the upper 1,300 feet of the volcano's summit."
+        },
+        {
+          "id": "e_pinatubo_1991",
+          "volcano": "Mount Pinatubo",
+          "country": "Philippines",
+          "year": 1991,
+          "displayYear": "1991 AD",
+          "deaths": 847,
+          "veiIndex": 6,
+          "funFact": "It ejected so much aerosol into the stratosphere that global temperatures dropped by 0.5°C."
+        },
+        {
+          "id": "e_chaiten_2008",
+          "volcano": "Chaitén",
+          "country": "Chile",
+          "year": 2008,
+          "displayYear": "2008 AD",
+          "deaths": 1,
+          "veiIndex": 4,
+          "funFact": "The volcano erupted without warning after being dormant for over 9,000 years."
+        },
+        {
+          "id": "e_eyjafjallajokull_2010",
+          "volcano": "Eyjafjallajökull",
+          "country": "Iceland",
+          "year": 2010,
+          "displayYear": "2010 AD",
+          "deaths": 0,
+          "veiIndex": 4,
+          "funFact": "Its massive ash cloud disrupted European air travel for almost a month."
+        },
+        {
+          "id": "e_hunga_tonga_2022",
+          "volcano": "Hunga Tonga",
+          "country": "Tonga",
+          "year": 2022,
+          "displayYear": "2022 AD",
+          "deaths": 6,
+          "veiIndex": 6,
+          "funFact": "The eruption generated a tsunami and a shockwave that circled the Earth multiple times."
+        }
+      ]
+    },
+    {
+      "roundId": 2,
+      "title": "19th Century",
+      "difficulty": "Medium",
+      "backgroundKey": "volk_back_2",
+      "symbolKey": "volk_sym_2",
+      "eruptions": [
+        {
+          "id": "e_tambora_1815",
+          "volcano": "Mount Tambora",
+          "country": "Indonesia",
+          "year": 1815,
+          "displayYear": "1815 AD",
+          "deaths": 71000,
+          "veiIndex": 7,
+          "funFact": "This eruption caused the infamous 'Year Without a Summer' across the Northern Hemisphere."
+        },
+        {
+          "id": "e_galunggung_1822",
+          "volcano": "Mount Galunggung",
+          "country": "Indonesia",
+          "year": 1822,
+          "displayYear": "1822 AD",
+          "deaths": 4000,
+          "veiIndex": 5,
+          "funFact": "The catastrophic eruption destroyed dozens of nearby villages with pyroclastic flows."
+        },
+        {
+          "id": "e_krakatoa_1883",
+          "volcano": "Krakatoa",
+          "country": "Indonesia",
+          "year": 1883,
+          "displayYear": "1883 AD",
+          "deaths": 36000,
+          "veiIndex": 6,
+          "funFact": "The sound of the explosion was heard over 3,000 miles away, making it one of the loudest sounds in history."
+        },
+        {
+          "id": "e_tarawera_1886",
+          "volcano": "Mount Tarawera",
+          "country": "New Zealand",
+          "year": 1886,
+          "displayYear": "1886 AD",
+          "deaths": 120,
+          "veiIndex": 5,
+          "funFact": "The eruption destroyed the famous Pink and White Terraces, once considered the 8th Wonder of the World."
+        },
+        {
+          "id": "e_bandai_1888",
+          "volcano": "Mount Bandai",
+          "country": "Japan",
+          "year": 1888,
+          "displayYear": "1888 AD",
+          "deaths": 477,
+          "veiIndex": 4,
+          "funFact": "The phreatic eruption triggered a massive landslide that dramatically altered the local landscape."
+        }
+      ]
+    },
+    {
+      "roundId": 3,
+      "title": "16th-18th Century",
+      "difficulty": "Hard",
+      "backgroundKey": "volk_back_3",
+      "symbolKey": "volk_sym_3",
+      "eruptions": [
+        {
+          "id": "e_kelud_1586",
+          "volcano": "Mount Kelud",
+          "country": "Indonesia",
+          "year": 1586,
+          "displayYear": "1586 AD",
+          "deaths": 10000,
+          "veiIndex": 5,
+          "funFact": "Kelud has a crater lake that is known to suddenly boil and cause catastrophic lahars."
+        },
+        {
+          "id": "e_huaynaputina_1600",
+          "volcano": "Huaynaputina",
+          "country": "Peru",
+          "year": 1600,
+          "displayYear": "1600 AD",
+          "deaths": 1500,
+          "veiIndex": 6,
+          "funFact": "The largest recorded volcanic eruption in South America; its ash impacted the global climate."
+        },
+        {
+          "id": "e_awu_1711",
+          "volcano": "Mount Awu",
+          "country": "Indonesia",
+          "year": 1711,
+          "displayYear": "1711 AD",
+          "deaths": 3000,
+          "veiIndex": 4,
+          "funFact": "A deadly crater lake breach led to massive lahars that buried nearby settlements."
+        },
+        {
+          "id": "e_laki_1783",
+          "volcano": "Laki",
+          "country": "Iceland",
+          "year": 1783,
+          "displayYear": "1783 AD",
+          "deaths": 9000,
+          "veiIndex": 4,
+          "funFact": "The eruption released massive amounts of sulfur dioxide, causing widespread famine and cooling temperatures."
+        },
+        {
+          "id": "e_unzen_1792",
+          "volcano": "Mount Unzen",
+          "country": "Japan",
+          "year": 1792,
+          "displayYear": "1792 AD",
+          "deaths": 15000,
+          "veiIndex": 2,
+          "funFact": "The collapse of the volcano's dome triggered a mega-tsunami, making it Japan's worst volcanic disaster."
+        }
+      ]
+    },
+    {
+      "roundId": 4,
+      "title": "Ancient to Medieval",
+      "difficulty": "Expert",
+      "backgroundKey": "volk_back_4",
+      "symbolKey": "volk_sym_4",
+      "eruptions": [
+        {
+          "id": "e_thera_1600bc",
+          "volcano": "Thera (Santorini)",
+          "country": "Greece",
+          "year": -1600,
+          "displayYear": "1600 BC",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "The massive eruption may have been the inspiration for the legend of Atlantis."
+        },
+        {
+          "id": "e_vesuvius_79",
+          "volcano": "Mount Vesuvius",
+          "country": "Italy",
+          "year": 79,
+          "displayYear": "79 AD",
+          "deaths": 16000,
+          "veiIndex": 5,
+          "funFact": "The eruption famously buried the Roman cities of Pompeii and Herculaneum in ash."
+        },
+        {
+          "id": "e_ilopango_431",
+          "volcano": "Lake Ilopango",
+          "country": "El Salvador",
+          "year": 431,
+          "displayYear": "431 AD",
+          "deaths": 0,
+          "veiIndex": 6,
+          "funFact": "The eruption devastated local Mayan cities and contributed to a global cooling event."
+        },
+        {
+          "id": "e_paektu_946",
+          "volcano": "Mount Paektu",
+          "country": "North Korea / China",
+          "year": 946,
+          "displayYear": "946 AD",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "Known as the 'Millennium Eruption', it ejected enough tephra to cover much of the region."
+        },
+        {
+          "id": "e_samalas_1257",
+          "volcano": "Samalas",
+          "country": "Indonesia",
+          "year": 1257,
+          "displayYear": "1257 AD",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "Its immense sulfate aerosol release may have triggered the 'Little Ice Age' globally."
+        }
+      ]
+    },
+    {
+      "roundId": 5,
+      "title": "Prehistoric",
+      "difficulty": "Master",
+      "backgroundKey": "volk_back_5",
+      "symbolKey": "volk_sym_5",
+      "eruptions": [
+        {
+          "id": "e_yellowstone_21m_bc",
+          "volcano": "Yellowstone",
+          "country": "USA",
+          "year": -2100000,
+          "displayYear": "2.1M BC",
+          "deaths": 0,
+          "veiIndex": 8,
+          "funFact": "The Huckleberry Ridge eruption formed the massive Island Park Caldera."
+        },
+        {
+          "id": "e_toba_74k_bc",
+          "volcano": "Lake Toba",
+          "country": "Indonesia",
+          "year": -74000,
+          "displayYear": "74,000 BC",
+          "deaths": 0,
+          "veiIndex": 8,
+          "funFact": "This supereruption is believed to have caused a genetic bottleneck in human evolution."
+        },
+        {
+          "id": "e_taupo_26k_bc",
+          "volcano": "Taupo",
+          "country": "New Zealand",
+          "year": -26500,
+          "displayYear": "26,500 BC",
+          "deaths": 0,
+          "veiIndex": 8,
+          "funFact": "The Oruanui eruption was the largest known volcanic event in the last 70,000 years."
+        },
+        {
+          "id": "e_kurile_lake_6400bc",
+          "volcano": "Kurile Lake",
+          "country": "Russia",
+          "year": -6440,
+          "displayYear": "6440 BC",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "The eruption created a caldera that is now filled by a large, scenic lake in Kamchatka."
+        },
+        {
+          "id": "e_crater_lake_5700bc",
+          "volcano": "Mount Mazama",
+          "country": "USA",
+          "year": -5700,
+          "displayYear": "5700 BC",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "The catastrophic collapse of Mount Mazama formed what is now known as Crater Lake."
+        }
+      ]
+    },
+    {
+      "roundId": 6,
+      "title": "Mixed Ultimate",
+      "difficulty": "Legend",
+      "backgroundKey": "volk_back_1",
+      "symbolKey": "volk_sym_6",
+      "eruptions": [
+        {
+          "id": "e_campi_flegrei_39k_bc",
+          "volcano": "Campi Flegrei",
+          "country": "Italy",
+          "year": -39000,
+          "displayYear": "39,000 BC",
+          "deaths": 0,
+          "veiIndex": 7,
+          "funFact": "This massive supervolcano eruption likely contributed to the decline of Neanderthals in Europe."
+        },
+        {
+          "id": "e_laschamp_41k_bc",
+          "volcano": "Laschamp",
+          "country": "France",
+          "year": -41000,
+          "displayYear": "41,000 BC",
+          "deaths": 0,
+          "veiIndex": 4,
+          "funFact": "Its volcanic activity coincided with a major geomagnetic excursion known as the Laschamp event."
+        },
+        {
+          "id": "e_katmai_1912",
+          "volcano": "Novarupta",
+          "country": "USA",
+          "year": 1912,
+          "displayYear": "1912 AD",
+          "deaths": 0,
+          "veiIndex": 6,
+          "funFact": "The largest eruption of the 20th century created the Valley of Ten Thousand Smokes in Alaska."
+        },
+        {
+          "id": "e_laacher_see_10k_bc",
+          "volcano": "Laacher See",
+          "country": "Germany",
+          "year": -10930,
+          "displayYear": "10,930 BC",
+          "deaths": 0,
+          "veiIndex": 6,
+          "funFact": "The eruption damned the Rhine river and created a large lake that still occasionally bubbles with gas."
+        },
+        {
+          "id": "e_kilauea_2018",
+          "volcano": "Kilauea",
+          "country": "USA",
+          "year": 2018,
+          "displayYear": "2018 AD",
+          "deaths": 0,
+          "veiIndex": 3,
+          "funFact": "Its dramatic rift zone eruption added new land to Hawaii but destroyed over 700 homes."
+        }
+      ]
+    }
+  ]
+}
