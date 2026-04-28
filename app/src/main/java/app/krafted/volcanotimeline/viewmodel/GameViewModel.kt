@@ -74,28 +74,29 @@ class GameViewModel(
     fun confirmOrder() {
         val state = _uiState.value
         val round = state.currentRound ?: return
-        
+
         val correctOrder = OrderingEngine.getSortedByYear(round.eruptions)
         val validation = OrderingEngine.validateOrder(state.cardOrder, correctOrder)
         val correctCount = OrderingEngine.countCorrect(validation)
-        val isPerfect = correctCount == state.cardOrder.size
-        
-        val score = calculateScore(correctCount, state.attemptNumber, round.difficulty, isPerfect)
-        
-        _uiState.update { 
+        val allCorrect = correctCount == state.cardOrder.size
+        val isPerfectFirstAttempt = allCorrect && state.attemptNumber == 1
+
+        val score = calculateScore(correctCount, state.attemptNumber, round.difficulty, isPerfectFirstAttempt)
+
+        _uiState.update {
             it.copy(
                 isConfirmed = true,
                 results = validation,
                 score = score
             )
         }
-        
-        if (isPerfect) {
+
+        if (allCorrect) {
             viewModelScope.launch {
                 val currentProgress = roundProgressDao.getRoundProgress(round.roundId).firstOrNull()
                 val currentBest = currentProgress?.bestScore ?: 0
                 val bestScore = if (score > currentBest) score else currentBest
-                
+
                 roundProgressDao.upsertRoundProgress(
                     RoundProgress(
                         roundId = round.roundId,
@@ -109,11 +110,15 @@ class GameViewModel(
     }
 
     fun nextAttempt() {
-        _uiState.update { 
+        val state = _uiState.value
+        val round = state.currentRound ?: return
+        val shuffled = round.eruptions.shuffled()
+        _uiState.update {
             it.copy(
                 isConfirmed = false,
                 attemptNumber = it.attemptNumber + 1,
-                results = List(it.cardOrder.size) { false }
+                cardOrder = shuffled,
+                results = List(shuffled.size) { false }
             )
         }
     }
