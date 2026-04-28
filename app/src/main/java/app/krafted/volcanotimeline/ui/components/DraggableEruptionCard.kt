@@ -24,6 +24,7 @@ fun DraggableEruptionCard(
     isConfirmed: Boolean,
     isCorrect: Boolean,
     onSwap: (Int, Int) -> Unit,
+    onDragStateChanged: (String?, Float) -> Unit = { _, _ -> },
     modifier: Modifier = Modifier
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -34,6 +35,9 @@ fun DraggableEruptionCard(
     val dragModifier = if (!isConfirmed) {
         Modifier.pointerInput(Unit) {
             detectDragGestures(
+                onDragStart = {
+                    onDragStateChanged(eruption.id, 0f)
+                },
                 onDragEnd = {
                     val dropY = offset.value.y
                     val cardHeight = size.height.toFloat()
@@ -44,11 +48,13 @@ fun DraggableEruptionCard(
                         onSwap(index, targetIndex)
                     }
                     
+                    onDragStateChanged(null, 0f)
                     coroutineScope.launch {
                         offset.animateTo(Offset.Zero, spring())
                     }
                 },
                 onDragCancel = {
+                    onDragStateChanged(null, 0f)
                     coroutineScope.launch {
                         offset.animateTo(Offset.Zero, spring())
                     }
@@ -57,6 +63,7 @@ fun DraggableEruptionCard(
                 change.consume()
                 coroutineScope.launch {
                     offset.snapTo(offset.value + dragAmount)
+                    onDragStateChanged(eruption.id, offset.value.y)
                 }
             }
         }

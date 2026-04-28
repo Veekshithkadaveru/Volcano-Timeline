@@ -23,7 +23,9 @@ data class GameUiState(
     val results: List<Boolean> = emptyList(),
     val score: Int = 0,
     val attemptNumber: Int = 1,
-    val revealedFunFacts: List<Boolean> = emptyList()
+    val revealedFunFacts: List<Boolean> = emptyList(),
+    val draggedEruptionId: String? = null,
+    val dragOffset: Float = 0f
 )
 
 class GameViewModel(
@@ -63,6 +65,10 @@ class GameViewModel(
             }
             state.copy(cardOrder = mutableCards)
         }
+    }
+
+    fun setDragState(eruptionId: String?, offset: Float) {
+        _uiState.update { it.copy(draggedEruptionId = eruptionId, dragOffset = offset) }
     }
 
     fun confirmOrder() {
@@ -129,6 +135,8 @@ class GameViewModel(
             "medium" -> 1.5f
             "hard" -> 2.0f
             "expert" -> 3.0f
+            "master" -> 4.0f
+            "legend" -> 5.0f
             else -> 1.0f
         }
         val penaltyMultiplier = Math.max(0.1f, 1.0f - ((attempts - 1) * 0.2f))
