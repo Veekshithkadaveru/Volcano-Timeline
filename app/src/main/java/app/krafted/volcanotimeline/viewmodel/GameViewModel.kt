@@ -144,7 +144,7 @@ class GameViewModel(
             "legend" -> 5.0f
             else -> 1.0f
         }
-        val penaltyMultiplier = Math.max(0.1f, 1.0f - ((attempts - 1) * 0.2f))
+        val penaltyMultiplier = (1.0f - ((attempts - 1) * 0.2f)).coerceAtLeast(0.1f)
         var score = (positionPoints * multiplier * penaltyMultiplier).toInt()
         
         if (isPerfect && attempts == 1) {

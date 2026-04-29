@@ -49,10 +49,12 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import app.krafted.volcanotimeline.R
 import app.krafted.volcanotimeline.data.model.EruptionRound
 import kotlinx.coroutines.delay
 
@@ -130,13 +132,13 @@ fun RoundIntroScreen(
     }
 
     val eraDescription = when (round.roundId) {
-        1 -> "From the devastating blast of Mount St. Helens to the global reach of Hunga Tonga — test your knowledge of eruptions that shaped the modern world."
-        2 -> "The 19th century saw some of history's most catastrophic volcanic events. Can you put these titans of destruction in the right order?"
-        3 -> "Venture into the age of exploration, where volcanic fury reshaped civilizations and altered global climates for years."
-        4 -> "From the legendary Thera eruption to the medieval Samalas blast — ancient and medieval eruptions that echo through history."
-        5 -> "Journey millions of years into the past. These prehistoric supereruptions dwarfed anything in recorded history."
-        6 -> "The ultimate challenge. Eruptions spanning all of human history — from 41,000 BC to 2018. Only true experts survive."
-        else -> "Prepare for the challenge ahead."
+        1 -> stringResource(R.string.era_description_1)
+        2 -> stringResource(R.string.era_description_2)
+        3 -> stringResource(R.string.era_description_3)
+        4 -> stringResource(R.string.era_description_4)
+        5 -> stringResource(R.string.era_description_5)
+        6 -> stringResource(R.string.era_description_6)
+        else -> stringResource(R.string.era_description_default)
     }
 
     Box(modifier = modifier.fillMaxSize()) {
@@ -214,7 +216,7 @@ fun RoundIntroScreen(
                             )
                             Image(
                                 painter = painterResource(id = symbolResId),
-                                contentDescription = null,
+                                contentDescription = round.title,
                                 modifier = Modifier
                                     .size(120.dp)
                                     .scale(iconScale.value)

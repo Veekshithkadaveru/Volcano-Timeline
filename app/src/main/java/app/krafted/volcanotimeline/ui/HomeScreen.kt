@@ -58,6 +58,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.krafted.volcanotimeline.R
 import app.krafted.volcanotimeline.viewmodel.HomeViewModel
+import androidx.compose.ui.res.stringResource
 import app.krafted.volcanotimeline.viewmodel.RoundCardState
 import kotlinx.coroutines.delay
 
@@ -278,6 +279,26 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(10.dp))
 
+            if (uiState.loadError) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color(0xFFB71C1C).copy(alpha = 0.18f))
+                        .border(1.dp, Color(0xFFEF5350).copy(alpha = 0.5f), RoundedCornerShape(16.dp))
+                        .padding(horizontal = 20.dp, vertical = 16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = stringResource(R.string.load_error_message),
+                        color = Color(0xFFEF9A9A),
+                        fontSize = 14.sp,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                    )
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+            }
+
             uiState.roundCards.forEachIndexed { index, cardState ->
                 val fromLeft = index % 2 == 0
                 AnimatedVisibility(
@@ -430,7 +451,7 @@ private fun RoundCard(
                     }
                     Image(
                         painter = painterResource(id = symbolResId),
-                        contentDescription = null,
+                        contentDescription = cardState.round.title,
                         modifier = Modifier
                             .size(52.dp)
                             .clip(CircleShape),

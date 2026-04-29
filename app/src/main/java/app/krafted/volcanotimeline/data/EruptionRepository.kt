@@ -9,9 +9,10 @@ import java.io.InputStreamReader
 class EruptionRepository(private val context: Context) {
 
     private var cachedRounds: List<EruptionRound>? = null
+    private var loadFailed: Boolean = false
 
     fun getEruptionRounds(): List<EruptionRound> {
-        if (cachedRounds != null) return cachedRounds!!
+        cachedRounds?.let { return it }
 
         return try {
             val inputStream = context.assets.open("eruptions.json")
@@ -21,10 +22,12 @@ class EruptionRepository(private val context: Context) {
             cachedRounds = data.rounds
             data.rounds
         } catch (e: Exception) {
-            e.printStackTrace()
+            loadFailed = true
             emptyList()
         }
     }
+
+    fun hasLoadError() = loadFailed
 
     fun getRound(roundId: Int): EruptionRound? {
         return getEruptionRounds().find { it.roundId == roundId }

@@ -28,6 +28,7 @@ import app.krafted.volcanotimeline.ui.HomeScreen
 import app.krafted.volcanotimeline.ui.ResultScreen
 import app.krafted.volcanotimeline.ui.RoundCompleteScreen
 import app.krafted.volcanotimeline.ui.RoundIntroScreen
+import app.krafted.volcanotimeline.ui.SplashScreen
 import app.krafted.volcanotimeline.ui.VictoryScreen
 import app.krafted.volcanotimeline.ui.theme.VolcanoTimelineTheme
 import app.krafted.volcanotimeline.viewmodel.GameViewModel
@@ -53,6 +54,7 @@ class MainActivity : ComponentActivity() {
 }
 
 object Routes {
+    const val SPLASH = "splash"
     const val HOME = "home"
     const val ROUND_INTRO = "round_intro/{roundId}"
     const val GAME_FLOW = "game_flow/{roundId}"
@@ -77,16 +79,27 @@ fun VolcanoNavGraph(
 ) {
     val navController = rememberNavController()
     val transitionDuration = 350
+    val totalRounds = remember { repository.getEruptionRounds().size }
 
     NavHost(
         navController = navController,
-        startDestination = Routes.HOME,
+        startDestination = Routes.SPLASH,
         modifier = modifier,
         enterTransition = { fadeIn(tween(transitionDuration)) },
         exitTransition = { fadeOut(tween(transitionDuration)) },
         popEnterTransition = { fadeIn(tween(transitionDuration)) },
         popExitTransition = { fadeOut(tween(transitionDuration)) }
     ) {
+        composable(Routes.SPLASH) {
+            SplashScreen(
+                onSplashComplete = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.SPLASH) { inclusive = true }
+                    }
+                }
+            )
+        }
+
         composable(Routes.HOME) {
             val homeViewModel: HomeViewModel = viewModel(
                 factory = HomeViewModel.Factory(repository, dao)
@@ -110,7 +123,7 @@ fun VolcanoNavGraph(
             Routes.ROUND_INTRO,
             arguments = listOf(navArgument("roundId") { type = NavType.IntType })
         ) { backStackEntry ->
-            val roundId = backStackEntry.arguments?.getInt("roundId") ?: 1
+            val roundId = (backStackEntry.arguments?.getInt("roundId") ?: 1).coerceIn(1, totalRounds.coerceAtLeast(1))
             val round = remember(roundId) { repository.getRound(roundId) }
             if (round != null) {
                 RoundIntroScreen(
@@ -133,7 +146,7 @@ fun VolcanoNavGraph(
                 Routes.GAME,
                 arguments = listOf(navArgument("roundId") { type = NavType.IntType })
             ) { backStackEntry ->
-                val roundId = backStackEntry.arguments?.getInt("roundId") ?: 1
+                val roundId = (backStackEntry.arguments?.getInt("roundId") ?: 1).coerceIn(1, totalRounds.coerceAtLeast(1))
                 val parentEntry = remember(backStackEntry) {
                     navController.getBackStackEntry(Routes.GAME_FLOW)
                 }
@@ -159,7 +172,7 @@ fun VolcanoNavGraph(
                 Routes.RESULT,
                 arguments = listOf(navArgument("roundId") { type = NavType.IntType })
             ) { backStackEntry ->
-                val roundId = backStackEntry.arguments?.getInt("roundId") ?: 1
+                val roundId = (backStackEntry.arguments?.getInt("roundId") ?: 1).coerceIn(1, totalRounds.coerceAtLeast(1))
                 val parentEntry = remember(backStackEntry) {
                     navController.getBackStackEntry(Routes.GAME_FLOW)
                 }
@@ -171,7 +184,7 @@ fun VolcanoNavGraph(
                 ResultScreen(
                     viewModel = gameViewModel,
                     onNextRound = {
-                        if (roundId < 6) {
+                        if (roundId < totalRounds) {
                             navController.navigate(Routes.roundIntro(roundId + 1)) {
                                 popUpTo(Routes.HOME)
                             }
@@ -193,7 +206,7 @@ fun VolcanoNavGraph(
                 Routes.ROUND_COMPLETE,
                 arguments = listOf(navArgument("roundId") { type = NavType.IntType })
             ) { backStackEntry ->
-                val roundId = backStackEntry.arguments?.getInt("roundId") ?: 1
+                val roundId = (backStackEntry.arguments?.getInt("roundId") ?: 1).coerceIn(1, totalRounds.coerceAtLeast(1))
                 val parentEntry = remember(backStackEntry) {
                     navController.getBackStackEntry(Routes.GAME_FLOW)
                 }
@@ -205,7 +218,7 @@ fun VolcanoNavGraph(
                 RoundCompleteScreen(
                     viewModel = gameViewModel,
                     onNextRound = {
-                        if (roundId < 6) {
+                        if (roundId < totalRounds) {
                             navController.navigate(Routes.roundIntro(roundId + 1)) {
                                 popUpTo(Routes.HOME)
                             }

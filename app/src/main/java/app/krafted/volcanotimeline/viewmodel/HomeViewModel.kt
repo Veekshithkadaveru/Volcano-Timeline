@@ -22,7 +22,8 @@ data class RoundCardState(
 data class HomeUiState(
     val roundCards: List<RoundCardState> = emptyList(),
     val totalScore: Int = 0,
-    val allCompleted: Boolean = false
+    val allCompleted: Boolean = false,
+    val loadError: Boolean = false
 )
 
 class HomeViewModel(
@@ -39,6 +40,10 @@ class HomeViewModel(
 
     private fun loadRounds() {
         val rounds = repository.getEruptionRounds()
+        if (repository.hasLoadError()) {
+            _uiState.update { it.copy(loadError = true) }
+            return
+        }
         viewModelScope.launch {
             roundProgressDao.getAllRoundProgress().collect { progressList ->
                 val progressMap = progressList.associateBy { it.roundId }

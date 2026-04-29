@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Volcano Timeline</string>
+    <string name="era_description_1">From the devastating blast of Mount St. Helens to the global reach of Hunga Tonga — test your knowledge of eruptions that shaped the modern world.</string>
+    <string name="era_description_2">The 19th century saw some of history\'s most catastrophic volcanic events. Can you put these titans of destruction in the right order?</string>
+    <string name="era_description_3">Venture into the age of exploration, where volcanic fury reshaped civilizations and altered global climates for years.</string>
+    <string name="era_description_4">From the legendary Thera eruption to the medieval Samalas blast — ancient and medieval eruptions that echo through history.</string>
+    <string name="era_description_5">Journey millions of years into the past. These prehistoric supereruptions dwarfed anything in recorded history.</string>
+    <string name="era_description_6">The ultimate challenge. Eruptions spanning all of human history — from 41,000 BC to 2018. Only true experts survive.</string>
+    <string name="era_description_default">Prepare for the challenge ahead.</string>
+    <string name="load_error_message">Could not load game data. Please reinstall the app.</string>
 </resources>
