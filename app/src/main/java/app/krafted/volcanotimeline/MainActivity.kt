@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            VolcanoTimelineTheme(dynamicColor = false) {
+            VolcanoTimelineTheme {
                 val repository = remember { EruptionRepository(applicationContext) }
                 val db = remember { AppDatabase.getDatabase(applicationContext) }
                 val dao = remember { db.roundProgressDao() }
